@@ -3,188 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFly Website Analysis</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Multi Tool Hub</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #1E1E2F;
             color: #EAEAEA;
-            line-height: 1.6;
+            text-align: center;
+        }
+
+        .header {
+            background: #2B2D42;
             padding: 20px;
-            min-height: 100vh;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 0;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #CCCCCC;
-        }
-
-        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: #3A3D5B;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(255, 215, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .card h2 {
-            color: #FFD700;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card p {
-            color: #CCCCCC;
-            margin-bottom: 20px;
-        }
-
-        .card ul {
-            list-style-type: none;
-            padding-left: 5px;
-        }
-
-        .card li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .card li:before {
-            content: "•";
-            color: #FFD700;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .tool-list {
-            background: #2B2D42;
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .tool-list h2 {
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-        }
-
-        .tools {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            max-width: 900px;
+            margin: 40px auto;
         }
 
-        .tool {
+        .tool-card {
             background: #3A3D5B;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
         }
 
-        .tool:hover {
-            background: #4A4D7B;
-            transform: scale(1.03);
+        .tool-card:hover {
+            background: #FFD700;
+            color: #1E1E2F;
         }
 
-        .tool i {
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .tool h3 {
-            color: #FFD700;
+        .tool-card h2 {
             margin-bottom: 10px;
-        }
-
-        .tool p {
-            color: #CCCCCC;
-            font-size: 0.9rem;
-        }
-
-        .note {
-            background: #2B2D42;
-            border-left: 4px solid #FFD700;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
-
-        .note h3 {
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-
-        .note p {
-            color: #CCCCCC;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #999;
-            border-top: 1px solid #3A3D5B;
         }
 
         .btn {
             display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
             background: #FFD700;
             color: #1E1E2F;
-            padding: 12px 25px;
+            border: none;
             border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background 0.3s ease;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         .btn:hover {
@@ -192,132 +69,72 @@
         }
 
         @media (max-width: 768px) {
-            .card-container {
+            .container {
                 grid-template-columns: 1fr;
-            }
-            
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            header p {
-                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="header">Multi Tool Hub</div>
+    
     <div class="container">
-        <header>
-            <h1><i class="fas fa-file-pdf"></i> PDFly Website Analysis</h1>
-            <p>Understanding PDFly's structure and learning how to create similar PDF tools</p>
-        </header>
-
-        <div class="card-container">
-            <div class="card">
-                <h2><i class="fas fa-check-circle"></i> What We Can Learn</h2>
-                <p>From examining PDFly's website, we can discover:</p>
-                <ul>
-                    <li>Overall page structure and layout</li>
-                    <li>Color scheme and design patterns</li>
-                    <li>Navigation and user flow</li>
-                    <li>Tool categorization methods</li>
-                    <li>Marketing message and value proposition</li>
-                    <li>Trust-building elements</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2><i class="fas fa-code"></i> Technical Insights</h2>
-                <p>Key technical aspects of PDF tools websites:</p>
-                <ul>
-                    <li>Frontend JavaScript for basic operations</li>
-                    <li>File upload and processing interfaces</li>
-                    <li>Responsive design for all devices</li>
-                    <li>Security and privacy messaging</li>
-                    <li>Performance optimization techniques</li>
-                    <li>User experience best practices</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2><i class="fas fa-exclamation-circle"></i> Limitations</h2>
-                <p>What we can't access from just examining the frontend:</p>
-                <ul>
-                    <li>Server-side processing logic</li>
-                    <li>Database architecture</li>
-                    <li>Proprietary algorithms</li>
-                    <li>API endpoints and structure</li>
-                    <li>User authentication systems</li>
-                    <li>Backend infrastructure</li>
-                </ul>
-            </div>
+        <div class="tool-card">
+            <h2>Image Converter</h2>
+            <p>Convert images to different formats easily.</p>
+            <button class="btn" onclick="goToSection('image-converter')">Go to Tool</button>
         </div>
 
-        <div class="note">
-            <h3><i class="fas fa-lightbulb"></i> Important Note</h3>
-            <p>While we can learn about the frontend design and user interface of websites like PDFly, the actual PDF processing happens on the server side. Creating similar functionality would require backend development with PDF processing libraries.</p>
+        <div class="tool-card">
+            <h2>Image Compressor</h2>
+            <p>Compress images without losing quality.</p>
+            <button class="btn" onclick="goToSection('image-compressor')">Go to Tool</button>
         </div>
 
-        <div class="tool-list">
-            <h2><i class="fas fa-tools"></i> Popular PDF Tools</h2>
-            <div class="tools">
-                <div class="tool">
-                    <i class="fas fa-compress-arrows-alt"></i>
-                    <h3>Compress PDF</h3>
-                    <p>Reduce file size while maintaining quality</p>
-                </div>
-                <div class="tool">
-                    <i class="fas fa-object-group"></i>
-                    <h3>Merge PDF</h3>
-                    <p>Combine multiple PDFs into one document</p>
-                </div>
-                <div class="tool">
-                    <i class="fas fa-cut"></i>
-                    <h3>Split PDF</h3>
-                    <p>Extract pages or split at specific points</p>
-                </div>
-                <div class="tool">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>Rotate PDF</h3>
-                    <p>Adjust page orientation in PDF files</p>
-                </div>
-                <div class="tool">
-                    <i class="fas fa-file-word"></i>
-                    <h3>PDF to Word</h3>
-                    <p>Convert PDFs to editable DOCX format</p>
-                </div>
-                <div class="tool">
-                    <i class="fas fa-lock"></i>
-                    <h3>Protect PDF</h3>
-                    <p>Add password protection to PDF files</p>
-                </div>
-            </div>
+        <div class="tool-card">
+            <h2>Image Crop</h2>
+            <p>Crop images to the desired size and dimensions.</p>
+            <button class="btn" onclick="goToSection('image-crop')">Go to Tool</button>
         </div>
 
-        <div class="note">
-            <h3><i class="fas fa-shield-alt"></i> Security Considerations</h3>
-            <p>PDF processing tools handle user files, so security is paramount. Reputable services like PDFly typically use SSL encryption, process files in memory without permanent storage, and automatically delete files after processing.</p>
-            <a href="#" class="btn">Learn More About PDF Security</a>
+        <div class="tool-card">
+            <h2>Video Converter</h2>
+            <p>Convert videos to different formats quickly.</p>
+            <button class="btn" onclick="goToSection('video-converter')">Go to Tool</button>
         </div>
 
-        <footer>
-            <p>This is an educational analysis page. PDFly is a trademark of its respective owners.</p>
-            <p>© 2023 Website Analysis Guide | For educational purposes only</p>
-        </footer>
+        <div class="tool-card">
+            <h2>Age Calculator</h2>
+            <p>Find your exact age in years, months, and days.</p>
+            <button class="btn" onclick="goToSection('age-calculator')">Go to Tool</button>
+        </div>
+
+        <div class="tool-card">
+            <h2>EMI Calculator</h2>
+            <p>Calculate your loan EMIs quickly.</p>
+            <button class="btn" onclick="goToSection('emi-calculator')">Go to Tool</button>
+        </div>
+
+        <div class="tool-card">
+            <h2>SIP Calculator</h2>
+            <p>Calculate your SIP returns effortlessly.</p>
+            <button class="btn" onclick="goToSection('sip-calculator')">Go to Tool</button>
+        </div>
+
+        <div class="tool-card">
+            <h2>Audio Trim</h2>
+            <p>Trim audio files to your required length.</p>
+            <button class="btn" onclick="goToSection('audio-trim')">Go to Tool</button>
+        </div>
     </div>
 
     <script>
-        // Simple animation for tool elements
-        document.addEventListener('DOMContentLoaded', function() {
-            const tools = document.querySelectorAll('.tool');
-            
-            tools.forEach((tool, index) => {
-                // Add delay for staggered animation
-                tool.style.animationDelay = `${index * 0.1}s`;
-                tool.classList.add('fade-in');
-            });
-        });
+        function goToSection(sectionId) {
+            alert('Redirecting to ' + sectionId + ' (Page under development)');
+            // Replace with actual navigation logic when the pages are ready
+        }
     </script>
 </body>
 </html>
+
+  
