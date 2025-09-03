@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Tool Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1E1E2F;
+            color: #EAEAEA;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2B2D42;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            color: #FFD700;
+            font-size: 32px;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            color: #EAEAEA;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #2B2D42 0%, #1E1E2F 100%);
+            margin-bottom: 30px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #CCCCCC;
+        }
+
+        /* Tools Grid */
+        .tools-section {
+            padding: 20px 0 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            color: #FFD700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #FFD700;
+            border-radius: 2px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .tool-card {
+            background-color: #3A3D5B;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(255, 215, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            background-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .tool-card:hover h3,
+        .tool-card:hover p {
+            color: #1E1E2F;
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .tool-card:hover .tool-icon {
+            color: #1E1E2F;
+        }
+
+        .tool-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #EAEAEA;
+            transition: color 0.3s ease;
+        }
+
+        .tool-card p {
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            transition: color 0.3s ease;
+        }
+
+        .btn {
+            background-color: #FFD700;
+            color: #1E1E2F;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #E6C200;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #999;
+            font-size: 14px;
+            padding: 20px 0;
+            border-top: 1px solid #3A3D5B;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo h1 {
+                font-size: 26px;
+            }
+            
+            .tool-card {
+                padding: 20px 15px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-tools"></i>
+                    <h1>Multi Tool Hub</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>All The Tools You Need In One Place</h2>
+            <p>Access a collection of powerful, easy-to-use tools for all your media processing and calculation needs. Completely free and works on any device.</p>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Our Tools</h2>
+            <div class="tools-grid">
+                <!-- Tool Card 1 -->
+                <div class="tool-card">
+                    <i class="fas fa-exchange-alt tool-icon"></i>
+                    <h3>Image Converter</h3>
+                    <p>Convert your images between different formats (JPG, PNG, WEBP, etc.) with just a few clicks.</p>
+                    <button class="btn" onclick="redirectToTool('Image Converter')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 2 -->
+                <div class="tool-card">
+                    <i class="fas fa-compress-arrows-alt tool-icon"></i>
+                    <h3>Image Compressor</h3>
+                    <p>Reduce image file sizes without noticeable quality loss. Perfect for web optimization.</p>
+                    <button class="btn" onclick="redirectToTool('Image Compressor')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 3 -->
+                <div class="tool-card">
+                    <i class="fas fa-crop-alt tool-icon"></i>
+                    <h3>Image Crop</h3>
+                    <p>Crop your images to the perfect size and aspect ratio for social media or other needs.</p>
+                    <button class="btn" onclick="redirectToTool('Image Crop')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 4 -->
+                <div class="tool-card">
+                    <i class="fas fa-film tool-icon"></i>
+                    <h3>Video Converter</h3>
+                    <p>Convert videos between popular formats like MP4, AVI, MOV, and more with fast processing.</p>
+                    <button class="btn" onclick="redirectToTool('Video Converter')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 5 -->
+                <div class="tool-card">
+                    <i class="fas fa-birthday-cake tool-icon"></i>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate exact age between two dates or find out how old you are in years, months, and days.</p>
+                    <button class="btn" onclick="redirectToTool('Age Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 6 -->
+                <div class="tool-card">
+                    <i class="fas fa-calculator tool-icon"></i>
+                    <h3>EMI Calculator</h3>
+                    <p>Calculate your Equated Monthly Installments for loans with different interest rates and tenures.</p>
+                    <button class="btn" onclick="redirectToTool('EMI Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 7 -->
+                <div class="tool-card">
+                    <i class="fas fa-chart-line tool-icon"></i>
+                    <h3>SIP Calculator</h3>
+                    <p>Plan your investments with Systematic Investment Plan calculator to estimate returns.</p>
+                    <button class="btn" onclick="redirectToTool('SIP Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 8 -->
+                <div class="tool-card">
+                    <i class="fas fa-music tool-icon"></i>
+                    <h3>Audio Trim</h3>
+                    <p>Trim your audio files to select the perfect segment. Supports MP3, WAV, and other formats.</p>
+                    <button class="btn" onclick="redirectToTool('Audio Trim')">Use Tool</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Multi Tool Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to show alert when a tool button is clicked
+        function redirectToTool(toolName) {
+            alert(`Redirecting to ${toolName}`);
+            // In a real implementation, this would navigate to the tool page
+            // window.location.href = `/${toolName.toLowerCase().replace(' ', '-')}`;
+        }
+
+        // Add some interactive effects to tool cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                // Add event listeners for additional interactivity
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
